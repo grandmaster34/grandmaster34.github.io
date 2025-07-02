@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Advanced CSS Variables with cyber theme */
     :root {
       --primary-color: #38bdf8;
       --secondary-color: #1e293b;
@@ -19,9 +20,9 @@
       --cyber-gradient: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
       --terminal-gradient: linear-gradient(135deg, #0f172a, #0a2a3a, #0f172a);
       --card-gradient: linear-gradient(135deg, #1e293b, #2d3b52, #1e293b);
-      --beginner-level: 35%; /* Beginner skill level percentage */
     }
 
+    /* Smooth scrolling and base styles */
     html {
       scroll-behavior: smooth;
     }
@@ -37,6 +38,7 @@
       min-height: 100vh;
     }
 
+    /* Matrix background effect */
     .matrix-bg {
       position: fixed;
       top: 0;
@@ -49,6 +51,7 @@
       background-size: 10px;
     }
 
+    /* Particle animation for cyber effect */
     .particles {
       position: fixed;
       top: 0;
@@ -87,11 +90,13 @@
       }
     }
 
+    /* Terminal-like typography for headings */
     h1, h2, h3 {
       font-family: 'Orbitron', sans-serif;
       letter-spacing: 1px;
     }
 
+    /* Enhanced header with animation and glow effect */
     header {
       background: var(--terminal-gradient);
       padding: 60px 20px;
@@ -164,6 +169,7 @@
       50% { opacity: 0; }
     }
 
+    /* Navigation with cyber style */
     nav {
       position: sticky;
       top: 0;
@@ -212,6 +218,7 @@
       width: 100%;
     }
 
+    /* Styled sections with advanced animations */
     section {
       padding: 50px 30px;
       max-width: 1000px;
@@ -273,6 +280,7 @@
       color: var(--terminal-green);
     }
 
+    /* Card-like styling for projects and skills with animations */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -337,7 +345,7 @@
       font-size: 1.5rem;
     }
 
-    /* Progress bars for skills - all set to beginner level */
+    /* Progress bars for skills */
     .skill-bar {
       height: 8px;
       background: rgba(30, 41, 59, 0.7);
@@ -355,35 +363,7 @@
       transition: width 1.5s ease-in-out;
     }
 
-    /* Skill level indicator */
-    .skill-level {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 5px;
-      font-size: 0.8rem;
-      color: #94a3b8;
-    }
-
-    .skill-level span {
-      position: relative;
-      padding: 0 5px;
-    }
-
-    .skill-level span.active {
-      color: var(--terminal-green);
-      font-weight: bold;
-    }
-
-    .skill-level span.active::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--terminal-green);
-    }
-
+    /* Contact section with interactive elements */
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -417,6 +397,7 @@
       color: var(--primary-color);
     }
 
+    /* Footer styling with wave animation */
     footer {
       background: var(--secondary-color);
       text-align: center;
@@ -470,6 +451,7 @@
       box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
     }
 
+    /* Terminal window style for project details */
     .terminal {
       background: rgba(0, 0, 0, 0.8);
       border-radius: 8px;
@@ -518,6 +500,7 @@
       text-decoration: underline;
     }
 
+    /* Timeline for education */
     .timeline {
       position: relative;
       max-width: 800px;
@@ -577,6 +560,7 @@
       position: relative;
     }
 
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       header h1 {
         font-size: 2.2rem;
@@ -627,6 +611,7 @@
       }
     }
 
+    /* Scroll to top button */
     .scroll-top {
       position: fixed;
       bottom: 30px;
@@ -659,22 +644,13 @@
       color: var(--background-color);
       transform: translateY(-5px);
     }
-    
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    
-    .skill-title {
-      font-size: 1.2rem;
-      color: var(--terminal-green);
-    }
   </style>
 </head>
 <body>
+  <!-- Matrix background effect -->
   <div class="matrix-bg"></div>
+  
+  <!-- Particles animation -->
   <div class="particles" id="particles"></div>
   
   <header id="top">
@@ -688,6 +664,7 @@
       <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
       <a href="#skills" class="nav-link"><i class="fas fa-laptop-code"></i> Skills</a>
       <a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="#qualifications" class="nav-link"><i class="fas fa-certificate"></i> Qualifications</a>
       <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
     </div>
   </nav>
@@ -741,82 +718,44 @@
     
     <section id="skills">
       <h2><i class="fas fa-shield-alt"></i> Skills & Expertise</h2>
-      <p style="text-align: center; margin-bottom: 30px; color: var(--terminal-green);">
-        <i class="fas fa-info-circle"></i> Currently developing these skills to mastery level
-      </p>
-      
       <div class="skills-grid">
         <div class="skill">
-          <div class="skill-header">
-            <h3><i class="fas fa-tools"></i> Security Tools</h3>
-          </div>
+          <h3><i class="fas fa-tools"></i> Security Tools</h3>
           <p>Burp Suite, OWASP ZAP, Nessus, Nmap, Netsparker, Metasploit, Nikto, Gobuster, LinPEAS</p>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: var(--beginner-level);"></div>
-          </div>
-          <div class="skill-level">
-            <span class="active">Beginner</span>
-            <span>Expert</span>
+            <div class="skill-progress" style="width: 30%"></div>
           </div>
         </div>
         
         <div class="skill">
-          <div class="skill-header">
-            <h3><i class="fas fa-code"></i> Programming Languages</h3>
-          </div>
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
           <p>Python, C, C++, JavaScript, Bash, PowerShell, SQL, Assembly</p>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: var(--beginner-level);"></div>
-          </div>
-          <div class="skill-level">
-        
-            <span class="active">Beginner</span>
-            <span>Expert</span>
+            <div class="skill-progress" style="width: 30%"></div>
           </div>
         </div>
         
         <div class="skill">
-          <div class="skill-header">
-            <h3><i class="fas fa-server"></i> Operating Systems</h3>
-          </div>
+          <h3><i class="fas fa-server"></i> Operating Systems</h3>
           <p>Kali Linux, Ubuntu, Parrot OS, Windows Server, Android</p>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: var(--beginner-level);"></div>
-          </div>
-          <div class="skill-level">
-    
-            <span class="active">Beginner</span>
-            <span>Expert</span>
+            <div class="skill-progress" style="width: 30%"></div>
           </div>
         </div>
         
         <div class="skill">
-          <div class="skill-header">
-            <h3><i class="fas fa-lock"></i> Technical Skills</h3>
-            
-          </div>
+          <h3><i class="fas fa-lock"></i> Technical Skills</h3>
           <p>HTML, CSS, PHP, JavaScript, NodeJS, Microsoft Office, Photoshop, Canva</p>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: var(--beginner-level);"></div>
-          </div>
-          <div class="skill-level">
-     
-            <span class="active">Beginner</span>
-            <span>Expert</span>
+            <div class="skill-progress" style="width: 30%"></div>
           </div>
         </div>
         
         <div class="skill">
-          <div class="skill-header">
-            <h3><i class="fas fa-brain"></i> Soft Skills</h3>
-          </div>
+          <h3><i class="fas fa-brain"></i> Soft Skills</h3>
           <p>Adaptability, Problem-solving, Teamwork, Time Management, Effective Communication</p>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: var(--beginner-level);"></div>
-          </div>
-          <div class="skill-level">
-            <span class="active">Beginner</span>
-            <span>expert</span>
+            <div class="skill-progress" style="width: 30%"></div>
           </div>
         </div>
       </div>
@@ -850,6 +789,68 @@
             <p>• Unlocked and modified application features by altering code</p>
             <p>• Bypassed license verifications and recompiled modded APK</p>
             <p>• Documented decompilation, analysis, and re-engineering process</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project">
+        <h3><i class="fas fa-bug"></i> Bug Bounty Participation</h3>
+        <p>Role: Vulnerability Tester | Tools: Ethical hacking techniques, penetration testing frameworks</p>
+        <div class="terminal">
+          <div class="terminal-content">
+            <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> achievements</p>
+            <p>• Engaged in various bug bounty programs to enhance vulnerability analysis skills</p>
+            <p>• Identified and reported critical vulnerabilities in real-world applications</p>
+            <p>• Contributed to security enhancement of targeted applications</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project">
+        <h3><i class="fas fa-laptop-code"></i> Website Development</h3>
+        <p>Role: Lead Developer | Technologies: HTML, CSS, PHP, JavaScript</p>
+        <div class="terminal">
+          <div class="terminal-content">
+            <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> description</p>
+            <p>• Developed a user-friendly website for educational purposes</p>
+            <p>• Managed team communication and project coordination</p>
+            <p>• Implemented responsive design and interactive features</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="qualifications">
+      <h2><i class="fas fa-certificate"></i> Additional Qualifications</h2>
+      
+      <div class="qualification">
+        <h3><i class="fas fa-shield-virus"></i> Vulnerability Assessments</h3>
+        <p>Conducting assessments in (OS/WEB) using:</p>
+        <div class="skill-icons">
+          <i class="fab fa-linux" title="Linux Security"></i>
+          <i class="fas fa-globe" title="Web Security"></i>
+          <i class="fas fa-search" title="OWASP ZAP"></i>
+          <i class="fas fa-server" title="Nessus"></i>
+          <i class="fas fa-network-wired" title="Nmap"></i>
+        </div>
+        <p>Tools: OWASP ZAP, Tenable Nessus, Nmap, Netsparker, Burp Suite</p>
+      </div>
+      
+      <div class="qualification">
+        <h3><i class="fas fa-flag"></i> CTF Practices</h3>
+        <p>Active participation in cybersecurity challenges:</p>
+        <div class="skills-grid" style="margin-top: 15px;">
+          <div class="skill" style="background: rgba(51, 65, 85, 0.3);">
+            <h4><i class="fas fa-medal"></i> TryHackMe</h4>
+            <p>Completed multiple rooms and challenges</p>
+          </div>
+          <div class="skill" style="background: rgba(51, 65, 85, 0.3);">
+            <h4><i class="fas fa-medal"></i> picoCTF</h4>
+            <p>Solved various security challenges</p>
+          </div>
+          <div class="skill" style="background: rgba(51, 65, 85, 0.3);">
+            <h4><i class="fas fa-medal"></i> PortSwigger Labs</h4>
+            <p>Practiced web application security techniques</p>
           </div>
         </div>
       </div>
@@ -909,6 +910,7 @@
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
+        // Random properties
         const size = Math.random() * 2 + 1;
         const posX = Math.random() * 100;
         const delay = Math.random() * 15;
