@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chathuranga Deshan | Cybersecurity Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #38bdf8;
+      --secondary-color: #1e293b;
+      --background-color: #0f172a;
+      --text-color: #f1f5f9;
+      --accent-color: #334155;
+      --terminal-green: #00ff41;
+      --cyber-blue: #00aaff;
+      --matrix-green: rgba(0, 255, 65, 0.1);
+      --cyber-gradient: linear-gradient(135deg, #0f172a, #1e293b, #0f172a);
+      --terminal-gradient: linear-gradient(135deg, #0f172a, #0a2a3a, #0f172a);
+      --card-gradient: linear-gradient(135deg, #1e293b, #2d3b52, #1e293b);
+      --beginner-level: 35%; /* Beginner skill level percentage */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--cyber-gradient);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .matrix-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.05;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="1" height="1" fill="white" /></svg>');
+      background-size: 10px;
+    }
+
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: var(--terminal-green);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(20px);
+        opacity: 0;
+      }
+    }
+
+    h1, h2, h3 {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    header {
+      background: var(--terminal-gradient);
+      padding: 60px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--terminal-green);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--terminal-green);
+      animation: scanline 8s linear infinite;
+    }
+
+    @keyframes scanline {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(calc(100% + 10px));
+      }
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: linear-gradient(to right, var(--terminal-green), var(--cyber-blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: text-glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes text-glow {
+      0% {
+        text-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
+      }
+      100% {
+        text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 30px rgba(0, 170, 255, 0.6);
+      }
+    }
+
+    header p {
+      margin: 15px 0 0;
+      font-size: 1.3rem;
+      color: #94a3b8;
+      position: relative;
+      display: inline-block;
+    }
+
+    header p::after {
+      content: '|';
+      animation: blink 1s infinite step-end;
+      margin-left: 5px;
+      color: var(--terminal-green);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid var(--accent-color);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 15px 20px;
+    }
+
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 15px;
+      position: relative;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--terminal-green);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--terminal-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 50px 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+      background: var(--card-gradient);
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 170, 255, 0.1) inset;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terminal-green), var(--cyber-blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+
+    section:hover::before {
+      transform: scaleX(1);
+    }
+
+    section:nth-child(2) { animation-delay: 0.1s; }
+    section:nth-child(3) { animation-delay: 0.2s; }
+    section:nth-child(4) { animation-delay: 0.3s; }
+    section:nth-child(5) { animation-delay: 0.4s; }
+    section:nth-child(6) { animation-delay: 0.5s; }
+    section:nth-child(7) { animation-delay: 0.6s; }
+
+    h2 {
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 15px;
+      font-size: 2rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+
+    h2 i {
+      margin-right: 15px;
+      color: var(--terminal-green);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .skill, .project, .education-item, .qualification {
+      padding: 25px;
+      background: rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill::before, .project::before, .education-item::before, .qualification::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--terminal-green);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+
+    .skill:hover, .project:hover, .education-item:hover, .qualification:hover {
+      transform: translateY(-10px);
+      background: rgba(51, 65, 85, 0.7);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 170, 255, 0.1);
+    }
+
+    .skill:hover::before, .project:hover::before, .education-item:hover::before, .qualification:hover::before {
+      transform: translateX(0);
+    }
+
+    .skill h3, .project h3, .education-item h3, .qualification h3 {
+      margin-top: 0;
+      color: var(--terminal-green);
+      display: flex;
+      align-items: center;
+    }
+
+    .skill h3 i, .project h3 i, .education-item h3 i, .qualification h3 i {
+      margin-right: 10px;
+    }
+
+    .skill p, .project p, .education-item p, .qualification p {
+      margin: 15px 0 0;
+      line-height: 1.6;
+    }
+
+    .skill-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 15px;
+      color: var(--primary-color);
+      font-size: 1.5rem;
+    }
+
+    /* Progress bars for skills - all set to beginner level */
+    .skill-bar {
+      height: 8px;
+      background: rgba(30, 41, 59, 0.7);
+      border-radius: 4px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--terminal-green), var(--cyber-blue));
+      border-radius: 4px;
+      position: relative;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* Skill level indicator */
+    .skill-level {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .skill-level span {
+      position: relative;
+      padding: 0 5px;
+    }
+
+    .skill-level span.active {
+      color: var(--terminal-green);
+      font-weight: bold;
+    }
+
+    .skill-level span.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--terminal-green);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .contact-card {
+      padding: 25px;
+      background: rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(56, 189, 248, 0.1);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      background: rgba(51, 65, 85, 0.7);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-card i {
+      font-size: 2.5rem;
+      color: var(--terminal-green);
+      margin-bottom: 15px;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 15px;
+      color: var(--primary-color);
+    }
+
+    footer {
+      background: var(--secondary-color);
+      text-align: center;
+      padding: 40px 20px 20px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .footer-wave {
+      position: absolute;
+      top: -60px;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23334155"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23334155"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%231e293b"/></svg>');
+      background-size: 1200px 60px;
+      animation: wave 12s linear infinite;
+    }
+
+    @keyframes wave {
+      0% { background-position-x: 0; }
+      100% { background-position-x: 1200px; }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(51, 65, 85, 0.7);
+      color: var(--terminal-green);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--terminal-green);
+      color: var(--background-color);
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+    }
+
+    .terminal {
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 8px;
+      padding: 20px;
+      font-family: monospace;
+      margin-top: 15px;
+      border: 1px solid var(--terminal-green);
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-content {
+      color: var(--terminal-green);
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+
+    .terminal-content p {
+      margin: 10px 0;
+    }
+
+    .terminal-content a {
+      color: var(--cyber-blue);
+      text-decoration: none;
+    }
+
+    .terminal-content a:hover {
+      text-decoration: underline;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 30px auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background: var(--terminal-green);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--terminal-green);
+      border: 3px solid var(--background-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    .timeline-content {
+      padding: 20px;
+      background: rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      .nav-container {
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        margin: 5px;
+        padding: 8px 12px;
+      }
+
+      section {
+        padding: 30px 20px;
+        margin: 30px 15px;
+      }
+
+      .skills-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline::after {
+        left: 31px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item::after {
+        left: 21px;
+      }
+
+      .timeline-item:nth-child(even)::after {
+        left: 21px;
+      }
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: rgba(30, 41, 59, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terminal-green);
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      border: 1px solid var(--terminal-green);
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+      z-index: 99;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-top:hover {
+      background: var(--terminal-green);
+      color: var(--background-color);
+      transform: translateY(-5px);
+    }
+    
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .skill-title {
+      font-size: 1.2rem;
+      color: var(--terminal-green);
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix-bg"></div>
+  <div class="particles" id="particles"></div>
+  
+  <header id="top">
+    <h1>Chathuranga Deshan</h1>
+    <p>Cybersecurity Specialist | Penetration Tester | Security Researcher</p>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+      <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="#skills" class="nav-link"><i class="fas fa-laptop-code"></i> Skills</a>
+      <a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i> Projects</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+    </div>
+  </nav>
+  
+  <main>
+    <section id="about">
+      <h2><i class="fas fa-terminal"></i> About Me</h2>
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dot dot-red"></div>
+          <div class="terminal-dot dot-yellow"></div>
+          <div class="terminal-dot dot-green"></div>
+        </div>
+        <div class="terminal-content">
+          <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> cat profile.txt</p>
+          <p>A motivated BSc (Hons) IT student at SLIIT, specializing in cybersecurity with expertise in ethical hacking, penetration testing, and vulnerability analysis.</p>
+          <p>Passionate about solving real-world security challenges, I continuously develop skills through self-study and hands-on practice.</p>
+          <p>Skilled at problem-solving, detail-oriented, and adept at working independently or in teams.</p>
+          <p>Seeking to contribute to an innovative organization by strengthening security frameworks and advancing my cybersecurity expertise.</p>
+          <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> <span class="cursor">_</span></p>
+        </div>
+      </div>
+    </section>
+    
+    <section id="education">
+      <h2><i class="fas fa-university"></i> Education</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3><i class="fas fa-graduation-cap"></i> B.Sc. (Hons) in Information Technology - Cyber Security</h3>
+            <p>Sri Lanka Institute of Information Technology (SLIIT) | Ongoing</p>
+            <ul>
+              <li>Completed 2nd Year of 4-year degree program</li>
+              <li>Relevant Coursework: Ethical Hacking, Network Security, Information Assurance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3><i class="fas fa-school"></i> G.C.E. Advanced Level</h3>
+            <p>Ruwanwella Rajasinghe Central College (RCC) | Technology Stream</p>
+            <ul>
+              <li>Engineering Technology: S</li>
+              <li>Science for Technology: S</li>
+              <li>Information and Communication Technology: S</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="skills">
+      <h2><i class="fas fa-shield-alt"></i> Skills & Expertise</h2>
+      <p style="text-align: center; margin-bottom: 30px; color: var(--terminal-green);">
+        <i class="fas fa-info-circle"></i> Currently developing these skills to mastery level
+      </p>
+      
+      <div class="skills-grid">
+        <div class="skill">
+          <div class="skill-header">
+            <h3><i class="fas fa-tools"></i> Security Tools</h3>
+          </div>
+          <p>Burp Suite, OWASP ZAP, Nessus, Nmap, Netsparker, Metasploit, Nikto, Gobuster, LinPEAS</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: var(--beginner-level);"></div>
+          </div>
+          <div class="skill-level">
+            <span class="active">Beginner</span>
+            <span>Expert</span>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-header">
+            <h3><i class="fas fa-code"></i> Programming Languages</h3>
+          </div>
+          <p>Python, C, C++, JavaScript, Bash, PowerShell, SQL, Assembly</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: var(--beginner-level);"></div>
+          </div>
+          <div class="skill-level">
+        
+            <span class="active">Beginner</span>
+            <span>Expert</span>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-header">
+            <h3><i class="fas fa-server"></i> Operating Systems</h3>
+          </div>
+          <p>Kali Linux, Ubuntu, Parrot OS, Windows Server, Android</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: var(--beginner-level);"></div>
+          </div>
+          <div class="skill-level">
+    
+            <span class="active">Beginner</span>
+            <span>Expert</span>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-header">
+            <h3><i class="fas fa-lock"></i> Technical Skills</h3>
+            
+          </div>
+          <p>HTML, CSS, PHP, JavaScript, NodeJS, Microsoft Office, Photoshop, Canva</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: var(--beginner-level);"></div>
+          </div>
+          <div class="skill-level">
+     
+            <span class="active">Beginner</span>
+            <span>Expert</span>
+          </div>
+        </div>
+        
+        <div class="skill">
+          <div class="skill-header">
+            <h3><i class="fas fa-brain"></i> Soft Skills</h3>
+          </div>
+          <p>Adaptability, Problem-solving, Teamwork, Time Management, Effective Communication</p>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: var(--beginner-level);"></div>
+          </div>
+          <div class="skill-level">
+            <span class="active">Beginner</span>
+            <span>expert</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="projects">
+      <h2><i class="fas fa-folder-open"></i> Projects & Research</h2>
+      
+      <div class="project">
+        <h3><i class="fas fa-network-wired"></i> Penetration Testing & Red Team Engagement – Mayo Industries (IE3022)</h3>
+        <p>SLIIT | Tools: Nmap, Nessus, Metasploit, Nikto, Gobuster, LinPEAS, Burp Suite</p>
+        <div class="terminal">
+          <div class="terminal-content">
+            <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> impact</p>
+            <p>• Conducted a full-scope penetration test simulating external and internal attacks</p>
+            <p>• Identified critical vulnerabilities (vsftpd backdoor, SQL injection, weak VNC passwords)</p>
+            <p>• Demonstrated root access via Metasploit and privilege escalation using LinPEAS</p>
+            <p>• Collaborated in a Red-Blue-Purple Team environment</p>
+            <p>• Drafted strategic recommendations for hardening infrastructure</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project">
+        <h3><i class="fas fa-mobile-alt"></i> Android APK Reverse Engineering and Modding (IE3112)</h3>
+        <p>SLIIT | Tools: JADX, apktool, Android Studio, Frida, ADB</p>
+        <div class="terminal">
+          <div class="terminal-content">
+            <p><span style="color: var(--cyber-blue);">user@portfolio:~$</span> features</p>
+            <p>• Reverse engineered Android APK to analyze premium feature mechanisms</p>
+            <p>• Unlocked and modified application features by altering code</p>
+            <p>• Bypassed license verifications and recompiled modded APK</p>
+            <p>• Documented decompilation, analysis, and re-engineering process</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2><i class="fas fa-id-card"></i> Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p><a href="mailto:deshanrcc@gmail.com">deshanrcc@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Phone</h3>
+          <p>+94 78 637 7007</p>
+        </div>
+        
+        <div class="contact-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Location</h3>
+          <p>E/64/A 12th Lane, Isurupura, Malabe</p>
+        </div>
+      </div>
+      
+      <div style="margin-top: 40px; text-align: center;">
+        <h3>Connect With Me</h3>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/chathuranga-deshan-a7a369307" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-hackerone"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="footer-wave"></div>
+    <p>© 2025 Chathuranga Deshan. All rights reserved.</p>
+    <p>Securely developed with <i class="fas fa-heart" style="color: var(--terminal-green);"></i></p>
+  </footer>
+  
+  <div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script>
+    // Create particles for background animation
+    function createParticles() {
+      const container = document.getElementById('particles');
+      const particleCount = 100;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 2 + 1;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 15;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(particle);
+      }
+    }
+    
+    // Scroll to top functionality
+    function setupScrollTop() {
+      const scrollBtn = document.getElementById('scrollTop');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      });
+      
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+    
+    // Animate progress bars on scroll
+    function animateProgressBars() {
+      const progressBars = document.querySelectorAll('.skill-progress');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const width = entry.target.style.width;
+            entry.target.style.width = '0';
+            setTimeout(() => {
+              entry.target.style.width = width;
+            }, 300);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      progressBars.forEach(bar => {
+        observer.observe(bar);
+      });
+    }
+    
+    // Terminal cursor animation
+    function animateCursor() {
+      const cursor = document.querySelector('.cursor');
+      if (cursor) {
+        setInterval(() => {
+          cursor.style.visibility = (cursor.style.visibility === 'hidden' ? 'visible' : 'hidden');
+        }, 500);
+      }
+    }
+    
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      setupScrollTop();
+      animateProgressBars();
+      animateCursor();
+    });
+  </script>
+</body>
+</html>
